@@ -49,9 +49,16 @@ app.get("/list", (req, res) => {
           res.send(JSON.stringify(outResult));
         })
         .catch((err) => {
-          console.log("reading err", err);
+          res.status(500);
+          res.type("application/json");
+          res.send(err);
         });
     }
   }
   console.log(params);
 });
+/**
+ * post 请求
+ * http://localhost:8080/add  请求主体 name="zhangsan" age="10"
+ * */
+app.post("/add", (req, res) => {});
